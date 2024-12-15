@@ -17,6 +17,7 @@ Usage:
 
 
 REQUIREMENTS:
+
 1.Numpy
 2.PyQT5
 3.psutil
@@ -24,11 +25,13 @@ REQUIREMENTS:
 
 
  FIRST CREATE AN VIRTUAL ENVIROMNENT  BY USING 
+ 
  python -m venv myenv   (THIS IS FOR INSTALLING THE VENV TO PROJECT)
 
 
 
 TO ACTIVATE IT USE
+
 .\myenv\Scripts\Activate    (TO ACTIVATE ON WINDOWS)
 
 
@@ -41,6 +44,7 @@ pip install pandas
 
 
 pip install matplotlib
+
      (OR)
      
 USE ;
