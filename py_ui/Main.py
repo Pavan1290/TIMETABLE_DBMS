@@ -11,7 +11,7 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
-        MainWindow.setObjectName("MainWindow")
+        MainWindow.setObjectName("")
         MainWindow.setWindowModality(QtCore.Qt.NonModal)
         MainWindow.resize(800, 600)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Maximum, QtWidgets.QSizePolicy.Maximum)
@@ -414,7 +414,7 @@ class Ui_MainWindow(object):
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
-        MainWindow.setWindowTitle(_translate("MainWindow", "Genetic Algorithm Scheduler"))
+        MainWindow.setWindowTitle(_translate("MainWindow", "TIMETABLE DBMS (SAHYADRI COLLEGE OF ENGINEERING AND MANAGEMENT)"))
         self.tabInstructors.setWhatsThis(_translate("MainWindow", "<html><head/><body><p><br/></p></body></html>"))
         self.groupBox.setTitle(_translate("MainWindow", "Operation"))
         self.btnInstrAdd.setText(_translate("MainWindow", "Add Instructor"))
