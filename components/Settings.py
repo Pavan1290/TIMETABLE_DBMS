@@ -41,6 +41,8 @@ def setSettings(key, value, secondKey=False):
 #   "generation_tolerance": 1500,
 #   "mutation_rate_adjustment_trigger": 0.08,
 #   "lunchbreak": true,
+#   "lunch_start_slot": 12,
+#   "lunch_end_slot": 13,
 #   "elite_percent": 0.05,
 #   "deviation_tolerance": 55,
 #   "evaluation_matrix": {

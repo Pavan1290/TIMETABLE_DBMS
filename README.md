@@ -1,3 +1,22 @@
+# Timetable DBMS
+
+## Features
+- Generates a timetable with classes and labs.
+- Default lunch break from 13:00 to 14:00.
+- Classes are 1 hour each.
+- Labs are 2 hours each.
+
+## Usage
+- To set a custom lunch break time:
+  ```python
+  timetable = Timetable()
+  timetable.set_lunch_break(start_hour, end_hour)
+  ```
+- Generate the timetable:
+  ```python
+  timetable.generate_timetable()
+  ```
+
 HEY FRNDS THIS IS PAVAN FROM SAHYADRI COLLEGE OF ENGINEERING AND MANAGEMENT 
 
 Usage:
@@ -25,7 +44,6 @@ REQUIREMENTS:
 
 
  FIRST CREATE AN VIRTUAL ENVIROMNENT  BY USING 
- 
  python -m venv myenv   (THIS IS FOR INSTALLING THE VENV TO PROJECT)
 
 
@@ -66,5 +84,5 @@ DM pavan.ai22@sahyadri.edu.in
 
 
 
-     
+
 

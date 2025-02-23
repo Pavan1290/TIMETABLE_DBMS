@@ -378,6 +378,23 @@
              </property>
             </widget>
            </item>
+           <item row="3" column="0">
+            <widget class="QLabel" name="labelLunchTime">
+             <property name="text">
+              <string>Lunch Time</string>
+             </property>
+            </widget>
+           </item>
+           <item row="3" column="1">
+            <layout class="QHBoxLayout" name="horizontalLayoutLunch">
+             <item>
+              <widget class="QTimeEdit" name="timeLunchStart"/>
+             </item>
+             <item>
+              <widget class="QTimeEdit" name="timeLunchEnd"/>
+             </item>
+            </layout>
+           </item>
           </layout>
          </widget>
         </item>

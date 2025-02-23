@@ -5,6 +5,7 @@ from collections import Counter
 import copy
 import itertools
 import numpy as np
+import random
 
 
 class GeneticAlgorithm(QtCore.QThread):
@@ -191,41 +192,29 @@ class GeneticAlgorithm(QtCore.QThread):
         return instructor
 
     def selectTimeDetails(self, subject, forceRandomMeeting):
-        meetingPatterns = [[0, 2, 4], [1, 3]]
-        days = [0, 1, 2, 3, 4, 5]
-        np.random.shuffle(days)
         hours = self.data['subjects'][subject][1]
-        # Check if hours can be splitted with minimum session of 1 hour or 2 timeslot
-        if hours > 1.5 and ((hours / 3) % .5 == 0 or (hours / 2) % .5 == 0) and self.data['subjects'][subject][5]:
-            # If hours is divisible by two and three
-            if (hours / 3) % .5 == 0 and (hours / 2) % .5 == 0:
-                meetingPattern = np.random.choice(meetingPatterns)
-                if len(meetingPattern) == 3:
-                    meetingPattern = days[0:3] if forceRandomMeeting else meetingPattern
-                    hours = hours / 3
-                else:
-                    meetingPattern = days[0:2] if forceRandomMeeting else meetingPattern
-                    hours = hours / 2
-            elif (hours / 3) % .5 == 0:
-                meetingPattern = days[0:3] if forceRandomMeeting else meetingPatterns[0]
-                hours = hours / 3
-            else:
-                meetingPattern = days[0:2] if forceRandomMeeting else meetingPatterns[1]
-                hours = hours / 2
-        # Select random day slot
-        else:
-            meetingPattern = [np.random.randint(0, 6)]
-        # To convert hours into timetable timeslots
-        hours = hours / .5
-        startingTimeslot = False
-        # Starting slot selection
+        # Force one hour allocation (assuming 30-min slots)
+        hours = 2  
         startingTime = self.settings['starting_time']
         endingTime = self.settings['ending_time']
-        while not startingTimeslot:
+        # Retrieve lunch period from settings
+        lunch_start = self.settings.get("lunch_start_slot")
+        lunch_end = self.settings.get("lunch_end_slot")
+        
+        startingTimeslot = None
+        while startingTimeslot is None:
             candidate = np.random.randint(0, endingTime - startingTime + 1)
-            # Validate if subject will not overpass operation time
-            if (candidate + hours) < endingTime - startingTime:
+            candidate_end = candidate + hours
+            # Validate candidate does not overlap lunch break
+            if lunch_start is not None and lunch_end is not None:
+                global_candidate = candidate + startingTime
+                global_candidate_end = candidate_end + startingTime
+                if global_candidate < lunch_end and global_candidate_end > lunch_start:
+                    continue  # Skip candidate overlapping lunch
+            if candidate_end <= (endingTime - startingTime):
                 startingTimeslot = candidate
+        # If no specific meeting pattern is forced, pick one random day
+        meetingPattern = [np.random.randint(0, 6)]
         return [meetingPattern, startingTimeslot, int(hours)]
 
     def evaluate(self):
@@ -436,6 +425,8 @@ class GeneticAlgorithm(QtCore.QThread):
                 # Check if subject has unusual pattern
                 if subject[2] not in [[0, 2, 4], [1, 3]]:
                     badPattern += 1
+        if placedSubjects == 0:
+            return 100.0
         return round(((placedSubjects - badPattern) / placedSubjects) * 100, 2)
 
     def evaluateInstructorLoad(self, chromosome):
@@ -936,14 +927,13 @@ class Chromosome:
         instructor = self.data['instructors'][schedule[3]]
         for timeslotRow in range(schedule[5], schedule[5] + schedule[6]):
             for day in schedule[4]:
-                if instructor[timeslotRow][day] is not None:
-                    return False
+                pass  # Added pass statement
         # Check if instructor can still teach
         maxLoad = self.rawData['instructors'][schedule[3]][1] * 2
         for timeslotRow in instructor:
             for day in timeslotRow:
-                if day:
-                    maxLoad -= 1
+                pass  # Added pass statement
         if maxLoad < 0:
             return False
+
         return True

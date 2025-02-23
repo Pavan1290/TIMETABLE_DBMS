@@ -158,6 +158,12 @@ class Ui_MainWindow(object):
         self.radioLunchNo = QtWidgets.QRadioButton(self.groupBox_7)
         self.radioLunchNo.setObjectName("radioLunchNo")
         self.horizontalLayout_5.addWidget(self.radioLunchNo)
+        self.timeLunchStart = QtWidgets.QTimeEdit(self.groupBox_7)
+        self.timeLunchStart.setObjectName("timeLunchStart")
+        self.horizontalLayout_5.addWidget(self.timeLunchStart)
+        self.timeLunchEnd = QtWidgets.QTimeEdit(self.groupBox_7)
+        self.timeLunchEnd.setObjectName("timeLunchEnd")
+        self.horizontalLayout_5.addWidget(self.timeLunchEnd)
         self.gridLayout_2.addWidget(self.groupBox_7, 2, 1, 1, 1)
         self.label_6 = QtWidgets.QLabel(self.groupBox_6)
         self.label_6.setObjectName("label_6")
@@ -514,3 +520,8 @@ class Ui_MainWindow(object):
         self.actionView_Results_2.setText(_translate("MainWindow", "View Results"))
         self.actionInstructions.setText(_translate("MainWindow", "Instructions"))
         self.actionAbout.setText(_translate("MainWindow", "About"))
+
+    def saveSettings(self):
+        lunch_start = self.timeLunchStart.time().toString("HH:mm")
+        lunch_end = self.timeLunchEnd.time().toString("HH:mm")
+        # ...existing code...
