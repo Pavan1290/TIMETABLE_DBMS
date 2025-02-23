@@ -84,7 +84,8 @@ THATS IT U WILL GET TO OPEN TO A SOFTWARE
 THANKYOU IF U HAVE ANY QUERIES
 DM pavan.ai22@sahyadri.edu.in ,
    akhileshsm11@gmail.com ,
-   saidevmakanur2004@gmail.com
+   saidevmakanur2004@gmail.com,
+   partha.am123@gmail.com
 
 
 
