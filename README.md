@@ -1,4 +1,7 @@
 # Timetable DBMS
+HEY FRNDS THIS IS PAVAN FROM SAHYADRI COLLEGE OF ENGINEERING AND MANAGEMENT 
+Me and my friends Akhilesh , Saidev have built this project.
+
 
 ## Features
 - Generates a timetable with classes and labs.
@@ -17,8 +20,7 @@
   timetable.generate_timetable()
   ```
 
-HEY FRNDS THIS IS PAVAN FROM SAHYADRI COLLEGE OF ENGINEERING AND MANAGEMENT 
-Me and my friends Akhilesh , Saidev have built this project
+
 Usage:
 
 1.Add instructors
