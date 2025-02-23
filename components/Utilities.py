@@ -3,7 +3,8 @@ from numpy import random as np
 
 
 def colorGenerator():
-    return [random.randint(0, 255), random.randint(0, 255), random.randint(0, 255)]
+    # Return a consistent professional blue color
+    return [51, 122, 183]  # Professional blue color
 
 
 def textColor(rgb):

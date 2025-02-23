@@ -32,14 +32,16 @@ class ScheduleParser:
     def parseData(self, data):
         view = self.table
         model = self.model
+        # Professional blue color
+        professional_color = [51, 122, 183]  # A nice material blue color
         for entry in data:
-            entry['color'] = Utilities.colorGenerator()
+            entry['color'] = professional_color
             for instance in entry['instances']:
                 index = model.index(instance[1], instance[0])
                 view.setSpan(instance[1], instance[0], instance[2] - instance[1], 1)
                 item = QtGui.QStandardItem(entry['text'])
                 item.setBackground(QtGui.QBrush(QtGui.QColor(*entry['color'])))
-                item.setForeground(QtGui.QBrush(QtGui.QColor(*Utilities.textColor(entry['color']))))
+                item.setForeground(QtGui.QBrush(QtGui.QColor(255, 255, 255)))  # White text
                 model.setData(index, item)
 
     def subjectGenerator(self):

@@ -32,9 +32,17 @@ class Timetable:
         for i in indexes:
             value = 'Available' if self.data[i.row()][i.column()] == 'Unavailable' else 'Unavailable'
             if value == 'Available':
-                self.table.setStyleSheet('selection-background-color: rgb(46, 204, 113); selection-color: black;')
+                self.table.setStyleSheet('''
+                    selection-background-color: rgba(46, 204, 113, 0.8);
+                    selection-color: white;
+                    border-radius: 4px;
+                ''')
             else:
-                self.table.setStyleSheet('selection-background-color: rgb(231, 76, 60); selection-color: black;')
+                self.table.setStyleSheet('''
+                    selection-background-color: rgba(231, 76, 60, 0.8);
+                    selection-color: white;
+                    border-radius: 4px;
+                ''')
             self.model.setData(i, value)
 
     def getData(self):

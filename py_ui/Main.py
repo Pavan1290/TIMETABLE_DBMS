@@ -520,8 +520,8 @@ class Ui_MainWindow(object):
         self.actionView_Results_2.setText(_translate("MainWindow", "View Results"))
         self.actionInstructions.setText(_translate("MainWindow", "Instructions"))
         self.actionAbout.setText(_translate("MainWindow", "About"))
+        self.actionAbout.setStatusTip(_translate("MainWindow", "About this application"))
 
     def saveSettings(self):
         lunch_start = self.timeLunchStart.time().toString("HH:mm")
         lunch_end = self.timeLunchEnd.time().toString("HH:mm")
-        # ...existing code...

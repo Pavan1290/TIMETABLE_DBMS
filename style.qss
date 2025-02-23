@@ -1,0 +1,113 @@
+
+/* Main Window */
+QMainWindow {
+    background: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1,
+                               stop:0 #1a237e, stop:0.5 #283593, stop:1 #303f9f);
+    color: #ffffff;
+}
+
+/* Tabs */
+QTabWidget::pane {
+    border: 1px solid #424242;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 5px;
+}
+
+QTabBar::tab {
+    background: qlineargradient(x1:0, y1:0, x2:0, y2:1,
+                               stop:0 #424242, stop:1 #323232);
+    color: #ffffff;
+    padding: 8px 20px;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    margin-right: 2px;
+}
+
+QTabBar::tab:selected {
+    background: qlineargradient(x1:0, y1:0, x2:0, y2:1,
+                               stop:0 #1976d2, stop:1 #1565c0);
+}
+
+/* Buttons */
+QPushButton {
+    background: qlineargradient(x1:0, y1:0, x2:0, y2:1,
+                               stop:0 #1976d2, stop:1 #1565c0);
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 4px;
+}
+
+QPushButton:hover {
+    background: qlineargradient(x1:0, y1:0, x2:0, y2:1,
+                               stop:0 #1e88e5, stop:1 #1976d2);
+}
+
+QPushButton:pressed {
+    background: qlineargradient(x1:0, y1:0, x2:0, y2:1,
+                               stop:0 #1565c0, stop:1 #0d47a1);
+}
+
+/* TreeView */
+QTreeView {
+    background-color: rgba(255, 255, 255, 0.95);
+    border-radius: 5px;
+    padding: 5px;
+}
+
+QTreeView::item:selected {
+    background: qlineargradient(x1:0, y1:0, x2:1, y2:0,
+                               stop:0 #1976d2, stop:1 #1565c0);
+    color: white;
+}
+
+/* Line Edits */
+QLineEdit {
+    padding: 5px;
+    border: 2px solid #424242;
+    border-radius: 4px;
+    background: white;
+}
+
+QLineEdit:focus {
+    border: 2px solid #1976d2;
+}
+
+/* Group Boxes */
+QGroupBox {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 5px;
+    padding: 15px;
+    margin-top: 10px;
+}
+
+QGroupBox::title {
+    color: #1976d2;
+    subcontrol-origin: margin;
+    left: 10px;
+    padding: 0 5px 0 5px;
+}
+
+/* Scroll Bars */
+QScrollBar:vertical {
+    border: none;
+    background: rgba(255, 255, 255, 0.1);
+    width: 10px;
+    border-radius: 5px;
+}
+
+QScrollBar::handle:vertical {
+    background: #1976d2;
+    border-radius: 5px;
+}
+
+/* Menu Bar */
+QMenuBar {
+    background: transparent;
+    color: white;
+}
+
+QMenuBar::item:selected {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+}

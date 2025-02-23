@@ -4,6 +4,7 @@ from components import Settings, Database, Timetable, ImportExportHandler as ioH
 from py_ui import Main
 import json
 import gc
+from .About import AboutDialog
 
 class MainWindow(Main.Ui_MainWindow):
     def __init__(self, parent):
@@ -17,6 +18,7 @@ class MainWindow(Main.Ui_MainWindow):
         self.drawTrees()
         self.tabWidget.currentChanged.connect(self.tabListener)
         self.tabWidget.setCurrentIndex(0)
+        self.actionAbout.triggered.connect(self.showAbout)
 
     # Connect Main component buttons to respective actions
     def connectButtons(self):
@@ -229,3 +231,7 @@ class MainWindow(Main.Ui_MainWindow):
         ioHandler.removeTables()
         Database.setup()
         self.tabListener(0)
+
+    def showAbout(self):
+        dialog = AboutDialog()
+        dialog.exec_()
