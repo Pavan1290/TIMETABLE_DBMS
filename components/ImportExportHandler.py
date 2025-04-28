@@ -18,7 +18,7 @@ def getCSVFile(type):
     if not fileContent.line_num:
         return False
     return content
-
+    
 
 def saveAs():
     fileName = QtWidgets.QFileDialog.getSaveFileName(None, 'Save GAS Scenario', '', 'GAS Scenario (*.gas)')
